@@ -1,0 +1,5 @@
+#!/Users/jahdaikilkenny/code/ga/Deliverables/Unit 3/4. Finch Collector/jordancollector/.env/bin/python3.11
+
+from idlelib.pyshell import main
+if __name__ == '__main__':
+    main()

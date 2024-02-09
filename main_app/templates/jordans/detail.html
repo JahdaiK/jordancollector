@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Jordan Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title red-text text-darken-4">{{ jordan.model }}</span>
+    <p>Colorway: {{ jordan.colorway }}</p>
+    <p>Release Year: {{ jordan.release_year}}</p>
+    <p>Designer: {{jordan.designer}} </p>
+    <p>Materials: {{jordan.materials}}</p>
+  </div>
+  <div class="card-action red accent-4">
+    <a href="{% url 'jordans_update' jordan.id%}" class="white-text">Edit</a>
+    <a href="{% url 'jordans_delete' jordan.id%}" class="white-text">Delete</a>
+  </div>
+</div>
+
+<div>
+  <form action="{% url 'add_task' jordan.id %}" method="POST">
+    {% csrf_token %}
+    {{ task_form.as_p}}
+    <input type="submit" class="btn red accent-4" value="Add Task">
+  </form>
+  <table>
+    <thead>
+      <tr class="red-text"><th>Date</th><th>Task</th></tr>
+    </thead>
+    <tbody>
+      {% for task in jordan.task_set.all %}
+        <tr>
+          <td>{{task.date}}</td>
+          <td>{{task.get_action_display}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

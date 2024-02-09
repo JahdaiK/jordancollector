@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if object %}
+    <h1 class="red-text text-darken-4">Edit <span>{{object.model}}</span></h1>
+    {% else %}
+     <h1 class="red-text text-darken-4">Add Jordan</h1>
+    {% endif %}
+
+    <form action="" method="POST">
+
+        {% csrf_token %}
+        <table>
+ 
+    {{ form.as_table }}      
+        </table>
+
+        <button class="btn-large red accent-4 right" type="submit" name="action">
+       SUBMIT!
+        </button>
+        <!-- <input type="submit" value="Submit!" class="btn"> -->
+    </form>
+{% endblock %}

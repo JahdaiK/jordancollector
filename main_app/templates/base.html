@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jordan Collector</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <div class = 'nav-wrapper red accent-4'>
+            <ul class="left">
+                <li>  <a href="{% url 'home' %}"> Home</a> </li>
+            </ul>
+            <ul class ='right'>
+                <li>
+                    <a href="{% url 'about' %}">About</a>
+                </li>
+                <li>
+                    <a href="{% url 'jordans_create' %}">Add Jordans</a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">All Jordans</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer></footer>
+</body>
+</html>

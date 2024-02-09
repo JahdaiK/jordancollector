@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>My Jordans:</h2>
+
+{% for jordan in jordans %}
+<div class="card red darken-3">
+    <div class="card-content white-text">
+        <a href="{% url 'detail' jordan.id %}" class="white-text">
+            <p><span class='card-title'> Model: {{jordan.model}}</span></p>
+            <p>Colorway: {{jordan.colorway}}</p>
+            <p>Release Year: {{jordan.release_year}}</p>
+            <p>Designer: {{jordan.designer}}</p>
+            <p>Material: {{jordan.materials}}</p>
+       </a>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
